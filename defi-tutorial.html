@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
 <style>
   :root {
     --bg: #EEF3F3;
@@ -63,6 +64,34 @@
 </style>
 </head>
 <body>
+    <header class="site-header">
+        <a href="index.html" class="brand" aria-label="AED-Finder Startseite">
+            <span class="brand-logo" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="30" height="30">
+                    <path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 2.9 4.5 6.6 4.5c2.1 0 3.6 1.1 5.4 3 1.8-1.9 3.3-3 5.4-3 3.7 0 5.7 3.9 4.2 7.3C19.5 16.4 12 21 12 21z" fill="#fff"/>
+                    <path d="M13 7.5l-3.5 5.5h2.6l-1.1 4.5 3.9-6h-2.7z" fill="#c0392b"/>
+                </svg>
+            </span>
+            <span class="brand-text">
+                <span class="brand-title">AED-Finder</span>
+                <span class="brand-sub">Defibrillatoren finden. Leben retten.</span>
+            </span>
+        </a>
+        <svg class="ekg-line" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true">
+            <polyline points="0,30 120,30 140,30 150,18 160,30 175,30 185,4 195,56 205,30 220,30 232,22 244,30 400,30"/>
+        </svg>
+        <span class="header-badge">Projekt Web Engineering</span>
+    </header>
+    <nav class="main-nav">
+        <div class="nav-links">
+            <a href="defi-tutorial.html" class="button-link" aria-current="page">Wie funktonierts?</a>
+            <a href="karte.html" class="button-link">Karte</a>
+            <a href="helfen.html" class="button-link">Wie helfe ich richtig?</a>
+            <a href="mitmachen.html" class="button-link">Mitmachen</a>
+        </div>
+        <a href="tel:112" class="notruf-button" aria-label="Notruf 112 anrufen">&#9742; 112</a>
+    </nav>
+<main>
 <div class="wrap">
   <div class="stage">
     <canvas id="out" width="1920" height="1080"></canvas>
@@ -77,6 +106,10 @@
     <span class="hint" id="hint"></span>
   </div>
 </div>
+</main>
+<footer class="site-footer">
+    <a href="impressum.html">Impressum</a>
+</footer>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>

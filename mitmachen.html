@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Mitmachen – Defi-Finder</title>
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="site-header">
+        <a href="index.html" class="brand" aria-label="AED-Finder Startseite">
+            <span class="brand-logo" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="30" height="30">
+                    <path d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 2.9 4.5 6.6 4.5c2.1 0 3.6 1.1 5.4 3 1.8-1.9 3.3-3 5.4-3 3.7 0 5.7 3.9 4.2 7.3C19.5 16.4 12 21 12 21z" fill="#fff"/>
+                    <path d="M13 7.5l-3.5 5.5h2.6l-1.1 4.5 3.9-6h-2.7z" fill="#c0392b"/>
+                </svg>
+            </span>
+            <span class="brand-text">
+                <span class="brand-title">AED-Finder</span>
+                <span class="brand-sub">Defibrillatoren finden. Leben retten.</span>
+            </span>
+        </a>
+        <svg class="ekg-line" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true">
+            <polyline points="0,30 120,30 140,30 150,18 160,30 175,30 185,4 195,56 205,30 220,30 232,22 244,30 400,30"/>
+        </svg>
+        <span class="header-badge">Projekt Web Engineering</span>
+    </header>
+    <nav class="main-nav">
+        <div class="nav-links">
+            <a href="defi-tutorial.html" class="button-link">Wie funktonierts?</a>
+            <a href="karte.html" class="button-link">Karte</a>
+            <a href="helfen.html" class="button-link">Wie helfe ich richtig?</a>
+            <a href="mitmachen.html" class="button-link" aria-current="page">Mitmachen</a>
+        </div>
+        <a href="tel:112" class="notruf-button" aria-label="Notruf 112 anrufen">&#9742; 112</a>
+    </nav>
+    <main>
+        <section class="page-intro">
+            <h1>Mitmachen</h1>
+            <p>Leben retten fängt nicht erst beim Defibrillator an. Diese Organisationen suchen Menschen, die sich ehrenamtlich engagieren – ganz egal, ob du schon Erfahrung hast oder ganz neu einsteigst.</p>
+        </section>
+
+        <!--
+            KONTAKTDATEN EINTRAGEN:
+            In jedem Banner gibt es eine <ul class="kontakt-liste">.
+            Ersetze dort einfach "Folgt in Kürze" durch die echten Daten, z. B.:
+              <a href="tel:+49301234567">030 1234567</a>
+              <a href="mailto:info@beispiel.de">info@beispiel.de</a>
+              <a href="https://www.beispiel.de" target="_blank" rel="noopener">beispiel.de</a>
+            und entferne die Klasse "leer" beim jeweiligen <li>.
+            Beim Knopf "Jetzt mitmachen" das href="#" durch den Link zur Anmeldung ersetzen.
+        -->
+
+        <div class="orga-liste">
+
+            <!-- DLRG -->
+            <article class="orga-banner" style="--akzent: #e0a800; --akzent-dunkel: #8a6700;">
+                <div class="orga-icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" width="40" height="40">
+                        <circle cx="24" cy="24" r="17" fill="none" stroke="#fff" stroke-width="8"/>
+                        <circle cx="24" cy="24" r="17" fill="none" stroke="#c0392b" stroke-width="8" stroke-dasharray="13.35 13.35"/>
+                    </svg>
+                </div>
+                <div class="orga-inhalt">
+                    <span class="orga-kategorie">Wasserrettung</span>
+                    <h2>DLRG – Deutsche Lebens-Rettungs-Gesellschaft</h2>
+                    <p>Die DLRG sorgt dafür, dass Menschen am und im Wasser sicher sind. Als Ehrenamtliche hilfst du bei der Schwimmausbildung oder hältst als Rettungsschwimmer Wache an Badestellen.</p>
+                    <ul class="orga-tags">
+                        <li>Wasserrettungsdienst</li>
+                        <li>Schwimmausbildung</li>
+                        <li>Rettungsschwimmer-Kurse</li>
+                        <li>Jugendarbeit</li>
+                    </ul>
+                </div>
+                <aside class="orga-kontakt">
+                    <h3>Kontakt</h3>
+                    <ul class="kontakt-liste">
+                        <li class="leer"><span>Telefon</span> Folgt in Kürze</li>
+                        <li class="leer"><span>E-Mail</span> Folgt in Kürze</li>
+                        <li class="leer"><span>Website</span> Folgt in Kürze</li>
+                    </ul>
+                    <a href="#" class="orga-button">Jetzt mitmachen</a>
+                </aside>
+            </article>
+
+            <!-- DRK -->
+            <article class="orga-banner" style="--akzent: #c0392b; --akzent-dunkel: #7b241c;">
+                <div class="orga-icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" width="40" height="40">
+                        <rect x="8" y="15" width="32" height="24" rx="4" fill="#fff"/>
+                        <path d="M18 15v-4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v4" fill="none" stroke="#fff" stroke-width="3"/>
+                        <path d="M24 20v14M17 27h14" stroke="#c0392b" stroke-width="4" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                <div class="orga-inhalt">
+                    <span class="orga-kategorie">Sanitäts- &amp; Hilfsdienst</span>
+                    <h2>DRK – Deutsches Rotes Kreuz</h2>
+                    <p>Beim DRK bist du da, wenn Menschen Hilfe brauchen: im Sanitätsdienst bei Veranstaltungen, im Katastrophenschutz, bei Blutspendeterminen oder als Ausbilder in Erste-Hilfe-Kursen.</p>
+                    <ul class="orga-tags">
+                        <li>Sanitätsdienst</li>
+                        <li>Katastrophenschutz</li>
+                        <li>Blutspende</li>
+                        <li>Erste-Hilfe-Ausbildung</li>
+                        <li>Jugendrotkreuz</li>
+                    </ul>
+                </div>
+                <aside class="orga-kontakt">
+                    <h3>Kontakt</h3>
+                    <ul class="kontakt-liste">
+                        <li class="leer"><span>Telefon</span> Folgt in Kürze</li>
+                        <li class="leer"><span>E-Mail</span> Folgt in Kürze</li>
+                        <li class="leer"><span>Website</span> Folgt in Kürze</li>
+                    </ul>
+                    <a href="#" class="orga-button">Jetzt mitmachen</a>
+                </aside>
+            </article>
+
+            <!-- Feuerwehr -->
+            <article class="orga-banner" style="--akzent: #d35400; --akzent-dunkel: #873600;">
+                <div class="orga-icon" aria-hidden="true">
+                    <svg viewBox="0 0 48 48" width="40" height="40">
+                        <path d="M24 6c2 7 10 11 10 21a10 10 0 0 1-20 0c0-5 3-8 5-10 0 4 2 6 4 6-2-5 0-12 1-17z" fill="#fff"/>
+                        <path d="M24 26c1 3 5 4 5 8a5 5 0 0 1-10 0c0-3 3-5 5-8z" fill="#f1c40f"/>
+                    </svg>
+                </div>
+                <div class="orga-inhalt">
+                    <span class="orga-kategorie">Brandschutz &amp; Technische Hilfe</span>
+                    <h2>Freiwillige Feuerwehr</h2>
+                    <p>Die meisten Feuerwehren in Deutschland sind freiwillig. Nach der Grundausbildung rückst du zu Bränden, Unfällen und Unwettern aus. Für Kinder und Jugendliche gibt es die Jugendfeuerwehr.</p>
+                    <ul class="orga-tags">
+                        <li>Brandbekämpfung</li>
+                        <li>Technische Hilfeleistung</li>
+                        <li>Grundausbildung</li>
+                        <li>Jugendfeuerwehr</li>
+                    </ul>
+                </div>
+                <aside class="orga-kontakt">
+                    <h3>Kontakt</h3>
+                    <ul class="kontakt-liste">
+                        <li class="leer"><span>Telefon</span> Folgt in Kürze</li>
+                        <li class="leer"><span>E-Mail</span> Folgt in Kürze</li>
+                        <li class="leer"><span>Website</span> Folgt in Kürze</li>
+                    </ul>
+                    <a href="#" class="orga-button">Jetzt mitmachen</a>
+                </aside>
+            </article>
+
+        </div>
+    </main>
+    <footer class="site-footer">
+        <a href="impressum.html">Impressum</a>
+    </footer>
+</body>
+</html>

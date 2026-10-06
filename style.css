@@ -1,0 +1,505 @@
+/* Grundlayout */
+:root {
+    --rot: #c0392b;
+    --rot-dunkel: #7b241c;
+    --tinte: #1E2B33;
+    --tinte-hell: #2c3e48;
+    --grau: #5F6E76;
+    --hintergrund: #EEF3F3;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--hintergrund);
+    color: var(--tinte);
+    font-family: Inter, system-ui, sans-serif;
+}
+
+main {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 24px 16px 40px;
+}
+
+/* Tutorial-Seite bringt ihren eigenen Container mit – kein doppelter Abstand */
+main .wrap {
+    padding: 0;
+}
+
+/* Header */
+.site-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 22px 24px;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at 85% 20%, rgba(192, 57, 43, 0.35), transparent 45%),
+        linear-gradient(135deg, var(--tinte) 0%, var(--tinte-hell) 100%);
+    color: white;
+}
+
+.brand {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Logo im gleichen 3D-Stil wie die Knöpfe */
+.brand-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    flex-shrink: 0;
+    border-radius: 14px;
+    background-color: var(--rot);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.22), rgba(0, 0, 0, 0.1));
+    box-shadow:
+        0 5px 0 var(--rot-dunkel),
+        0 8px 14px rgba(0, 0, 0, 0.35),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-title {
+    font-size: 1.7rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+.brand-sub {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Dekorative EKG-Linie zwischen Schriftzug und Etikett,
+   blendet an beiden Enden weich ein bzw. aus */
+.ekg-line {
+    flex: 1;
+    min-width: 0;
+    height: 60px;
+    pointer-events: none;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 25%, black 75%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, black 25%, black 75%, transparent 100%);
+}
+
+.ekg-line polyline {
+    fill: none;
+    stroke: rgba(231, 76, 60, 0.45);
+    stroke-width: 2;
+    stroke-linejoin: round;
+    vector-effect: non-scaling-stroke;
+    stroke-dasharray: 600;
+    stroke-dashoffset: 600;
+    animation: ekg 3s linear infinite;
+}
+
+@keyframes ekg {
+    to {
+        stroke-dashoffset: -600;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .ekg-line polyline {
+        animation: none;
+        stroke-dasharray: none;
+    }
+}
+
+.header-badge {
+    position: relative;
+    z-index: 1;
+    padding: 6px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.8);
+    white-space: nowrap;
+}
+
+/* Navigation */
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 16px 24px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #dde4e4;
+    box-shadow: 0 4px 14px rgba(30, 43, 51, 0.06);
+}
+
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+/* 3D-Knöpfe */
+.button-link {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #c0392b;
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.18), rgba(0, 0, 0, 0.08));
+    box-shadow:
+        0 5px 0 #7b241c,
+        0 8px 10px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    transform: translateY(0);
+    transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.15s ease;
+}
+
+.button-link:hover {
+    background-color: #a93226;
+    transform: translateY(-1px);
+    box-shadow:
+        0 6px 0 #7b241c,
+        0 10px 12px rgba(0, 0, 0, 0.25),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+}
+
+/* Gedrückt beim Klicken und auf der aktuellen Seite */
+.button-link:active,
+.button-link[aria-current="page"] {
+    transform: translateY(5px);
+    box-shadow:
+        0 0 0 #7b241c,
+        0 2px 3px rgba(0, 0, 0, 0.25),
+        inset 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+.button-link[aria-current="page"] {
+    background-color: #a93226;
+}
+
+/* Großer roter Notruf-Knopf (rechts) */
+.notruf-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 84px;
+    height: 84px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #ff6b5b, #e60000 55%, #a30000);
+    color: white;
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-decoration: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    box-shadow:
+        0 7px 0 #6e0000,
+        0 12px 16px rgba(0, 0, 0, 0.35),
+        inset 0 2px 3px rgba(255, 255, 255, 0.4);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.notruf-button:hover {
+    transform: translateY(-1px);
+}
+
+.notruf-button:active {
+    transform: translateY(7px);
+    box-shadow:
+        0 0 0 #6e0000,
+        0 3px 4px rgba(0, 0, 0, 0.35),
+        inset 0 2px 3px rgba(255, 255, 255, 0.3);
+}
+
+/* Seiteneinleitung */
+.page-intro {
+    max-width: 720px;
+    margin-bottom: 28px;
+}
+
+.page-intro h1 {
+    margin: 8px 0 8px;
+    font-size: 2rem;
+    letter-spacing: -0.02em;
+}
+
+.page-intro p {
+    margin: 0;
+    color: var(--grau);
+    line-height: 1.6;
+}
+
+/* Mitmachen: Werbebanner der Organisationen */
+.orga-liste {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.orga-banner {
+    --akzent: var(--rot);
+    --akzent-dunkel: var(--rot-dunkel);
+    position: relative;
+    display: grid;
+    grid-template-columns: auto 1fr 260px;
+    gap: 24px;
+    align-items: start;
+    padding: 26px 26px 26px 30px;
+    overflow: hidden;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow:
+        0 6px 0 #d5dede,
+        0 16px 30px rgba(30, 43, 51, 0.1);
+}
+
+/* Farbiger Streifen links in der Farbe der Organisation */
+.orga-banner::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    background: var(--akzent);
+}
+
+.orga-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: 18px;
+    background-color: var(--akzent);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.25), rgba(0, 0, 0, 0.1));
+    box-shadow:
+        0 6px 0 var(--akzent-dunkel),
+        0 10px 16px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.45);
+}
+
+.orga-kategorie {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--akzent-dunkel);
+}
+
+.orga-inhalt h2 {
+    margin: 4px 0 10px;
+    font-size: 1.35rem;
+    letter-spacing: -0.01em;
+}
+
+.orga-inhalt p {
+    margin: 0 0 16px;
+    color: var(--grau);
+    line-height: 1.6;
+}
+
+.orga-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.orga-tags li {
+    padding: 5px 12px;
+    border-radius: 999px;
+    background: var(--hintergrund);
+    font-size: 0.85rem;
+    font-weight: 500;
+    box-shadow: 0 2px 0 #d5dede;
+}
+
+/* Kontaktbox mit Platzhaltern */
+.orga-kontakt {
+    padding: 18px;
+    border-radius: 12px;
+    background: var(--hintergrund);
+    box-shadow: inset 0 2px 4px rgba(30, 43, 51, 0.08);
+}
+
+.orga-kontakt h3 {
+    margin: 0 0 10px;
+    font-size: 0.95rem;
+}
+
+.kontakt-liste {
+    margin: 0 0 18px;
+    padding: 0;
+    list-style: none;
+    font-size: 0.9rem;
+}
+
+.kontakt-liste li {
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    padding: 6px 0;
+    border-bottom: 1px dashed #cdd6d6;
+}
+
+.kontakt-liste span {
+    font-weight: 600;
+}
+
+.kontakt-liste a {
+    color: var(--akzent-dunkel);
+    font-weight: 500;
+    text-decoration: none;
+    word-break: break-all;
+}
+
+.kontakt-liste li.leer {
+    color: #9aa6ab;
+    font-style: italic;
+}
+
+/* 3D-Knopf in der Farbe der Organisation */
+.orga-button {
+    display: block;
+    padding: 10px 16px;
+    text-align: center;
+    background-color: var(--akzent);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.18), rgba(0, 0, 0, 0.08));
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    border-radius: 6px;
+    box-shadow:
+        0 5px 0 var(--akzent-dunkel),
+        0 8px 10px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.35);
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+}
+
+.orga-button:hover {
+    transform: translateY(-1px);
+}
+
+.orga-button:active {
+    transform: translateY(5px);
+    box-shadow:
+        0 0 0 var(--akzent-dunkel),
+        0 2px 3px rgba(0, 0, 0, 0.2),
+        inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Impressum */
+.impressum {
+    max-width: 720px;
+    padding: 26px 30px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow:
+        0 6px 0 #d5dede,
+        0 16px 30px rgba(30, 43, 51, 0.1);
+    line-height: 1.6;
+}
+
+.impressum h2 {
+    margin: 0 0 6px;
+    font-size: 1.1rem;
+}
+
+.impressum p {
+    margin: 0 0 22px;
+}
+
+.impressum p:last-child {
+    margin-bottom: 0;
+}
+
+.platzhalter {
+    color: #9aa6ab;
+    font-style: italic;
+}
+
+/* Footer */
+.site-footer {
+    padding: 18px 24px;
+    text-align: center;
+    font-size: 0.85rem;
+    border-top: 1px solid #dde4e4;
+}
+
+.site-footer a {
+    color: var(--grau);
+    text-decoration: none;
+}
+
+.site-footer a:hover {
+    color: var(--rot);
+    text-decoration: underline;
+}
+
+@media (max-width: 860px) {
+    .orga-banner {
+        grid-template-columns: auto 1fr;
+    }
+
+    .orga-kontakt {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 600px) {
+    .orga-banner {
+        grid-template-columns: 1fr;
+        padding: 20px 18px 20px 22px;
+    }
+
+    .orga-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .site-header {
+        padding: 16px;
+    }
+
+    .header-badge {
+        display: none;
+    }
+
+    .brand-title {
+        font-size: 1.4rem;
+    }
+
+    .main-nav {
+        padding: 12px 16px;
+    }
+
+    .notruf-button {
+        width: 64px;
+        height: 64px;
+        font-size: 1rem;
+    }
+}
