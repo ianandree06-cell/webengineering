@@ -25,7 +25,7 @@ main {
     padding: 24px 16px 40px;
 }
 
-/* Tutorial-Seite bringt ihren eigenen Container mit – kein doppelter Abstand */
+
 main .wrap {
     padding: 0;
 }
@@ -89,8 +89,7 @@ main .wrap {
     color: rgba(255, 255, 255, 0.7);
 }
 
-/* Dekorative EKG-Linie zwischen Schriftzug und Etikett,
-   blendet an beiden Enden weich ein bzw. aus */
+
 .ekg-line {
     flex: 1;
     min-width: 0;
@@ -205,7 +204,7 @@ main .wrap {
     height: 84px;
     flex-shrink: 0;
     border-radius: 50%;
-    background: radial-gradient(circle at 35% 30%, #ff6b5b, #e60000 55%, #a30000);
+    background: radial-gradient(circle at 35% 30%, #ba392b, #e60000 55%, #a30000);
     color: white;
     font-size: 1.3rem;
     font-weight: bold;
@@ -410,6 +409,489 @@ main .wrap {
         0 0 0 var(--akzent-dunkel),
         0 2px 3px rgba(0, 0, 0, 0.2),
         inset 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Wie helfe ich richtig? */
+.hilfe-abschnitt {
+    margin-bottom: 48px;
+}
+
+.abschnitt-titel {
+    margin: 0 0 14px;
+    font-size: 1.5rem;
+    letter-spacing: -0.01em;
+}
+
+.abschnitt-text {
+    max-width: 760px;
+    margin: 0 0 20px;
+    color: var(--grau);
+    line-height: 1.6;
+}
+
+.hinweis {
+    margin: 16px 0 0;
+    padding-left: 12px;
+    border-left: 3px solid var(--rot);
+    font-size: 0.9rem;
+    color: var(--grau);
+}
+
+/* Gemeinsamer 3D-Kartenstil */
+.schritt-karte,
+.info-karte,
+.geschlecht-karte,
+.koerper-grafik,
+.takt-trainer {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow:
+        0 6px 0 #d5dede,
+        0 16px 30px rgba(30, 43, 51, 0.1);
+}
+
+/* Die drei Schritte */
+.schritte {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.schritt-karte {
+    padding: 24px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.schritt-karte:hover {
+    transform: translateY(-3px);
+    box-shadow:
+        0 9px 0 #d5dede,
+        0 20px 34px rgba(30, 43, 51, 0.12);
+}
+
+.schritt-karte h2 {
+    margin: 16px 0 8px;
+    font-size: 1.3rem;
+}
+
+.schritt-karte p {
+    margin: 0;
+    color: var(--grau);
+    line-height: 1.6;
+}
+
+.schritt-nummer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    background-color: var(--rot);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.22), rgba(0, 0, 0, 0.1));
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 700;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+    box-shadow:
+        0 5px 0 var(--rot-dunkel),
+        0 8px 12px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+}
+
+.zwei-spalten {
+    display: grid;
+    grid-template-columns: minmax(220px, 320px) 1fr;
+    gap: 28px;
+    align-items: start;
+}
+
+/* Körpergrafiken */
+.koerper-grafik {
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+}
+
+.koerper-grafik svg,
+.geschlecht-karte svg {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+}
+
+.koerper-grafik figcaption {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--grau);
+}
+
+.koerper {
+    fill: #f3d9c6;
+    stroke: #c9a58c;
+    stroke-width: 2;
+}
+
+.koerper-linie {
+    fill: none;
+    stroke: #c9a58c;
+    stroke-width: 2;
+    stroke-linecap: round;
+}
+
+.brustbein {
+    stroke: #c9a58c;
+    stroke-width: 3;
+    stroke-dasharray: 4 4;
+}
+
+.druckpunkt {
+    fill: var(--rot);
+}
+
+.druckpunkt-puls {
+    fill: var(--rot);
+    opacity: 0.3;
+    transform-origin: 100px 112px;
+    animation: puls 0.55s ease-in-out infinite alternate;
+}
+
+@keyframes puls {
+    from {
+        transform: scale(0.8);
+    }
+
+    to {
+        transform: scale(1.5);
+    }
+}
+
+.elektrode {
+    fill: #ffffff;
+    stroke: var(--rot);
+    stroke-width: 3;
+}
+
+/* Fakten als 3D-Kacheln */
+.fakten {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin: 0 0 22px;
+    padding: 0;
+    list-style: none;
+}
+
+.fakt {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 14px 12px;
+    border-radius: 12px;
+    background-color: var(--tinte);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.1));
+    color: white;
+    text-align: center;
+    box-shadow:
+        0 5px 0 #0f171c,
+        0 8px 12px rgba(0, 0, 0, 0.2),
+        inset 0 1px 0 rgba(255, 255, 255, 0.15);
+}
+
+.fakt strong {
+    font-size: 1.3rem;
+}
+
+.fakt span {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.75);
+}
+
+.anleitung {
+    margin: 0;
+    padding-left: 22px;
+    line-height: 1.7;
+}
+
+.anleitung li {
+    margin-bottom: 6px;
+}
+
+/* Taktgeber */
+.takt-trainer {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 28px;
+    align-items: center;
+    padding: 28px;
+}
+
+.takt-steuerung {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.takt-start {
+    border: 0;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.takt-lampe {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    background: #dfe6e6;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: background 0.05s, box-shadow 0.05s;
+}
+
+.takt-lampe.an {
+    background: radial-gradient(circle at 35% 30%, #ff8a7d, #e60000);
+    box-shadow:
+        0 0 16px rgba(230, 0, 0, 0.6),
+        inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* Großer 3D-Druckknopf zum Mitdrücken */
+.druck-knopf {
+    width: 160px;
+    height: 160px;
+    border: 0;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 30%, #ff6b5b, #e60000 55%, #a30000);
+    color: white;
+    font: inherit;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    box-shadow:
+        0 12px 0 #6e0000,
+        0 20px 26px rgba(0, 0, 0, 0.3),
+        inset 0 3px 4px rgba(255, 255, 255, 0.4);
+    transition: transform 0.06s ease, box-shadow 0.06s ease;
+}
+
+.druck-knopf:active,
+.druck-knopf.gedrueckt {
+    transform: translateY(12px);
+    box-shadow:
+        0 0 0 #6e0000,
+        0 4px 6px rgba(0, 0, 0, 0.3),
+        inset 0 3px 6px rgba(0, 0, 0, 0.25);
+}
+
+.takt-anzeige {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    text-align: center;
+}
+
+.takt-anzeige div {
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
+    border-radius: 12px;
+    background: var(--hintergrund);
+    box-shadow: inset 0 2px 4px rgba(30, 43, 51, 0.08);
+}
+
+.takt-anzeige strong {
+    font-size: 1.8rem;
+}
+
+.takt-anzeige span {
+    font-size: 0.8rem;
+    color: var(--grau);
+}
+
+.takt-feedback {
+    grid-column: 1 / -1;
+    margin: 0;
+    padding: 10px;
+    border-radius: 10px;
+    font-weight: 600;
+    background: var(--hintergrund);
+}
+
+.takt-feedback.gut {
+    background: #d8f0e5;
+    color: #1f7a54;
+}
+
+.takt-feedback.falsch {
+    background: #fbe0dc;
+    color: var(--rot-dunkel);
+}
+
+/* Notruf */
+.w-fragen {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.w-fragen li {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    line-height: 1.5;
+}
+
+.w-fragen span {
+    flex-shrink: 0;
+    width: 92px;
+    padding: 8px 0;
+    border-radius: 8px;
+    background-color: var(--rot);
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.18), rgba(0, 0, 0, 0.08));
+    color: white;
+    font-weight: 700;
+    text-align: center;
+    box-shadow:
+        0 4px 0 var(--rot-dunkel),
+        0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.zwei-spalten:has(.w-fragen) {
+    grid-template-columns: 1fr minmax(240px, 340px);
+}
+
+.info-karte {
+    padding: 24px;
+}
+
+.info-karte h3 {
+    margin: 0 0 8px;
+}
+
+.info-karte p {
+    margin: 0 0 18px;
+    color: var(--grau);
+    line-height: 1.6;
+}
+
+.info-karte p:last-child {
+    margin-bottom: 0;
+}
+
+.info-karte-wichtig {
+    margin-top: 24px;
+    border-left: 6px solid var(--rot);
+}
+
+/* Sprechblasen */
+.sprechblasen {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.sprechblase {
+    position: relative;
+    margin: 0 0 12px;
+    padding: 18px 20px;
+    border-radius: 16px;
+    background: var(--tinte);
+    color: white;
+    font-weight: 500;
+    line-height: 1.5;
+    box-shadow:
+        0 5px 0 #0f171c,
+        0 10px 16px rgba(0, 0, 0, 0.15);
+}
+
+.sprechblase::after {
+    content: "";
+    position: absolute;
+    left: 26px;
+    bottom: -14px;
+    border-width: 14px 14px 0 0;
+    border-style: solid;
+    border-color: var(--tinte) transparent transparent transparent;
+}
+
+/* Männer / Frauen */
+.geschlecht-karten {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+}
+
+.geschlecht-karte {
+    padding: 24px;
+}
+
+.geschlecht-karte svg {
+    display: block;
+    max-width: 160px;
+    margin: 0 auto 8px;
+}
+
+.geschlecht-karte h3 {
+    margin: 0 0 10px;
+}
+
+.geschlecht-karte ul {
+    margin: 0;
+    padding-left: 20px;
+    line-height: 1.6;
+}
+
+.geschlecht-karte li {
+    margin-bottom: 8px;
+}
+
+/* Quellen */
+.quellen ul {
+    padding-left: 20px;
+    line-height: 1.8;
+    font-size: 0.9rem;
+}
+
+.quellen a {
+    color: var(--rot);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .druckpunkt-puls {
+        animation: none;
+    }
+}
+
+@media (max-width: 860px) {
+
+    .schritte,
+    .sprechblasen,
+    .geschlecht-karten,
+    .zwei-spalten,
+    .zwei-spalten:has(.w-fragen) {
+        grid-template-columns: 1fr;
+    }
+
+    .fakten {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .takt-trainer {
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
+    .takt-steuerung {
+        align-items: center;
+    }
 }
 
 /* Impressum */
