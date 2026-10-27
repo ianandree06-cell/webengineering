@@ -1,0 +1,29 @@
+{
+  "name": "webengineering",
+  "version": "1.0.0",
+  "description": "Die Website ermittelt den Standort des Nutzers und zeigt über die Overpass-API von OpenStreetMap eine nach Entfernung sortierte Liste der nächsten Defibrillatoren mit Lage, Zugänglichkeit und Navigationslink. Zusätzlich enthält sie eine kurze Schritt-für-Schritt-Anleitung zur Wiederbelebung nach dem Schema „Prüfen – Rufen – Drücken“, damit Helfer bis zum Eintreffen des Defis richtig handeln können.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ianandree06-cell/webengineering.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ianandree06-cell/webengineering/issues"
+  },
+  "homepage": "https://github.com/ianandree06-cell/webengineering#readme",
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "tailwindcss": "^4.3.3",
+    "vite": "^8.3.5"
+  }
+}
