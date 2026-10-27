@@ -73,7 +73,7 @@
 
     /* Standard-Typografie */
     h1 {
-        @apply text-h1 text-white text-tinte mb-4 text-center;
+        @apply text-h1 text-tinte mb-4;
     }
 
     h2 {
