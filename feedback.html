@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Feedback – Defi-Finder</title>
+    <script type="module" src="app.js"></script>
+</head>
+
+<body>
+    <header class="site-header">
+        <a href="index.html" class="brand" aria-label="AED-Finder Startseite">
+            <span class="brand-logo" aria-hidden="true">
+                <svg viewBox="0 0 24 24" width="30" height="30">
+                    <path
+                        d="M12 21s-7.5-4.6-9.6-9.2C.9 8.4 2.9 4.5 6.6 4.5c2.1 0 3.6 1.1 5.4 3 1.8-1.9 3.3-3 5.4-3 3.7 0 5.7 3.9 4.2 7.3C19.5 16.4 12 21 12 21z"
+                        fill="#fff" />
+                    <path d="M13 7.5l-3.5 5.5h2.6l-1.1 4.5 3.9-6h-2.7z" fill="#c0392b" />
+                </svg>
+            </span>
+            <span class="brand-text">
+                <span class="brand-title">AED-Finder</span>
+                <span class="brand-sub">Defibrillatoren finden. Leben retten.</span>
+            </span>
+        </a>
+        <svg class="ekg-line" viewBox="0 0 400 60" preserveAspectRatio="none" aria-hidden="true">
+            <polyline
+                points="0,30 120,30 140,30 150,18 160,30 175,30 185,4 195,56 205,30 220,30 232,22 244,30 400,30" />
+        </svg>
+        <span class="header-badge">Projekt Web Engineering</span>
+    </header>
+    <nav class="main-nav">
+        <div class="nav-links">
+            <a href="defi-tutorial.html" class="button-link">Wie funktonierts?</a>
+            <a href="karte.html" class="button-link">Karte</a>
+            <a href="helfen.html" class="button-link">Wie helfe ich richtig?</a>
+            <a href="mitmachen.html" class="button-link">Mitmachen</a>
+        </div>
+        <a href="tel:112" class="notruf-button" aria-label="Notruf 112 anrufen">&#9742; 112</a>
+    </nav>
+    <main>
+        <section class="page-intro">
+            <h1>Feedback</h1>
+            <p>Wie gefällt dir der Defi-Finder? Dein Feedback hilft mir, die Seite besser zu machen.</p>
+        </section>
+
+        <div class="mx-auto my-8 flex max-w-2xl flex-col gap-6 px-4">
+            <section class="rounded-xl bg-white p-6 shadow-lg outline outline-black/5 md:p-8">
+                <h2>Feedbackbogen</h2>
+                <form id="feedbackForm" class="flex flex-col gap-4" novalidate>
+                    <div class="flex flex-col gap-1">
+                        <label for="fbName" class="font-semibold">Name <span class="text-sm font-normal text-grau">(optional)</span></label>
+                        <input id="fbName" name="name" type="text" maxlength="50" autocomplete="name"
+                            class="rounded-lg border border-grau/40 px-3 py-2">
+                    </div>
+
+                    <div class="flex flex-col gap-1">
+                        <label for="fbBewertung" class="font-semibold">Wie bewertest du die Seite?</label>
+                        <select id="fbBewertung" name="bewertung" required
+                            class="rounded-lg border border-grau/40 px-3 py-2">
+                            <option value="">Bitte wählen …</option>
+                            <option value="5">5 – sehr gut</option>
+                            <option value="4">4 – gut</option>
+                            <option value="3">3 – okay</option>
+                            <option value="2">2 – eher schlecht</option>
+                            <option value="1">1 – schlecht</option>
+                        </select>
+                    </div>
+
+                    <div class="flex flex-col gap-1">
+                        <label for="fbBereich" class="font-semibold">Welcher Bereich?</label>
+                        <select id="fbBereich" name="bereich" class="rounded-lg border border-grau/40 px-3 py-2">
+                            <option value="allgemein">Allgemein</option>
+                            <option value="karte">Karte</option>
+                            <option value="tutorial">Wie funktioniert's?</option>
+                            <option value="helfen">Wie helfe ich richtig?</option>
+                            <option value="mitmachen">Mitmachen</option>
+                        </select>
+                    </div>
+
+                    <div class="flex flex-col gap-1">
+                        <label for="fbNachricht" class="font-semibold">Deine Nachricht</label>
+                        <textarea id="fbNachricht" name="nachricht" rows="5" required minlength="5" maxlength="500"
+                            class="rounded-lg border border-grau/40 px-3 py-2"></textarea>
+                        <p class="mb-0 text-sm text-grau">5 bis 500 Zeichen</p>
+                    </div>
+
+                    <!-- Hier landen Fehlermeldungen / Bestätigung (per textContent befüllen) -->
+                    <p id="feedbackMeldung" class="mb-0" aria-live="polite"></p>
+
+                    <button type="submit" class="button-link self-start">Feedback absenden</button>
+                </form>
+            </section>
+
+            <section class="rounded-xl bg-white p-6 shadow-lg outline outline-black/5 md:p-8">
+                <h2>Bisheriges Feedback <span class="text-grau">(<span id="feedbackZaehler">0</span>)</span></h2>
+                <ul id="feedbackListe" class="flex flex-col gap-3"></ul>
+            </section>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <a href="impressum.html">Impressum</a>
+    </footer>
+</body>
+
+</html>

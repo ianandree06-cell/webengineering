@@ -17,6 +17,7 @@ export default defineConfig({
                 karte: resolve(__dirname, 'karte.html'),
                 mitmachen: resolve(__dirname, 'mitmachen.html'),
                 defiTutorial: resolve(__dirname, 'defi-tutorial.html'),
+                feedback: resolve(__dirname, 'feedback.html'),
             },
         },
     },

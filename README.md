@@ -7,3 +7,8 @@ Teammitglieder:
 Live-URL:
 
 https://ianandree06-cell.github.io/webengineering/index.html
+
+## KI-Log
+
+### Werkzeuge
+- **Claude Code** (Claude Opus 5.5, als Erweiterung in VS Code) – direkt im Projekt-Repo
