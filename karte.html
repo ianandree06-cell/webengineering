@@ -11,6 +11,7 @@
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <title>Karte – Defi-Finder</title>
     <script type="module" src="app.js"></script>
+    <script type="module" src="karte.js"></script>
 </head>
 
 <body>
@@ -45,24 +46,47 @@
         <a href="tel:112" class="notruf-button" aria-label="Notruf 112 anrufen">&#9742; 112</a>
     </nav>
     <main>
-        <h1>Karte</h1>
-        <div class="mx-auto mt-10 max-w-md rounded-xl bg-white p-8 text-center shadow-lg outline outline-black/5">
-            <div class="mx-auto mb-5 flex h-20 w-20 items-center justify-center rounded-full bg-amber-100">
-                <svg viewBox="0 0 24 24" class="h-11 w-11" fill="none" stroke="currentColor" stroke-width="2"
-                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path class="text-amber-500"
-                        d="M10.3 3.9 1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z" />
-                    <line class="text-amber-600" x1="12" y1="9" x2="12" y2="13" />
-                    <line class="text-amber-600" x1="12" y1="17" x2="12.01" y2="17" />
-                </svg>
-            </div>
-
-            <h2 class="mb-2">Work in Progress</h2>
-            <p class="mb-6 text-grau">
-                Die Karte mit den Defibrillatoren in deiner Nähe ist gerade noch in Arbeit
-                und bald verfügbar.
+        <section class="page-intro">
+            <h1>Defis in deiner Nähe</h1>
+            <p>
+                Die Karte zeigt Defibrillatoren (AEDs) aus OpenStreetMap. Erlaube den Standortzugriff
+                oder tippe auf die Karte, um einen Suchpunkt zu setzen – im gewählten Umkreis darum werden
+                alle Defis angezeigt. Den Suchpunkt kannst du jederzeit verschieben.
             </p>
+        </section>
+
+        <div class="karte-steuerung">
+            <button type="button" id="standortKnopf" class="button-link karte-knopf">&#9673; Meinen Standort
+                nutzen</button>
+            <button type="button" id="bereichKnopf" class="karte-knopf-zweit">Suchpunkt in Kartenmitte</button>
+            <label class="karte-radius">
+                Umkreis
+                <select id="radiusAuswahl">
+                    <option value="500">500 m</option>
+                    <option value="1000" selected>1 km</option>
+                    <option value="2000">2 km</option>
+                    <option value="5000">5 km</option>
+                </select>
+            </label>
         </div>
+        <p id="karteStatus" class="karte-status" role="status" aria-live="polite">Karte wird geladen …</p>
+
+        <div class="karte-layout">
+            <div id="defiKarte" class="defi-karte" aria-label="Karte mit Defibrillator-Standorten"></div>
+            <aside class="defi-seite" aria-label="Liste der Defibrillatoren">
+                <div class="defi-seite-kopf">
+                    <h2>Nächste Defis</h2>
+                    <span id="defiAnzahl" class="defi-anzahl">0</span>
+                </div>
+                <ol id="defiListe" class="defi-liste"></ol>
+            </aside>
+        </div>
+
+        <p class="hinweis">
+            Daten: &copy; OpenStreetMap-Mitwirkende, einmalig aus OpenStreetMap übernommen. Angaben können veraltet oder
+            unvollständig sein. Im Notfall immer zuerst <a href="tel:112">112</a> anrufen – die Leitstelle kennt
+            ebenfalls Defi-Standorte in der Nähe.
+        </p>
     </main>
     <footer class="site-footer">
         <a href="impressum.html">Impressum</a>

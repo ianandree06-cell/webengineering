@@ -1064,3 +1064,329 @@
         height: 60px;
     }
 }
+/* Karte */
+.karte-steuerung {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 12px;
+}
+
+.karte-knopf {
+    border: 0;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.karte-knopf:disabled,
+.karte-knopf-zweit:disabled {
+    opacity: 0.6;
+    cursor: wait;
+}
+
+.karte-knopf-zweit {
+    padding: 10px 18px;
+    border: 2px solid var(--rot);
+    border-radius: 6px;
+    background: #ffffff;
+    color: var(--rot);
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.15s ease;
+}
+
+.karte-knopf-zweit:hover {
+    background: #fbeceb;
+}
+
+.karte-radius {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: var(--tinte-hell);
+}
+
+.karte-radius select {
+    padding: 8px 10px;
+    border: 1px solid #c9d3d3;
+    border-radius: 6px;
+    background: #ffffff;
+    font: inherit;
+}
+
+.karte-status {
+    min-height: 1.6em;
+    margin: 0 0 14px;
+    color: var(--grau);
+}
+
+.karte-status.fehler {
+    color: var(--rot);
+    font-weight: 600;
+}
+
+.karte-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 360px;
+    gap: 20px;
+    align-items: stretch;
+}
+
+.defi-karte,
+.defi-seite {
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow:
+        0 6px 0 #d5dede,
+        0 16px 30px rgba(30, 43, 51, 0.1);
+}
+
+.defi-karte {
+    height: 620px;
+    overflow: hidden;
+    z-index: 0;
+}
+
+.defi-seite {
+    display: flex;
+    flex-direction: column;
+    height: 620px;
+    overflow: hidden;
+}
+
+.defi-seite-kopf {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 18px 12px;
+    border-bottom: 1px solid #e3eaea;
+}
+
+.defi-seite-kopf h2 {
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+.defi-anzahl {
+    min-width: 32px;
+    padding: 2px 10px;
+    border-radius: 999px;
+    background: var(--rot);
+    color: #ffffff;
+    font-weight: 700;
+    text-align: center;
+}
+
+.defi-liste {
+    flex: 1;
+    margin: 0;
+    padding: 8px;
+    overflow-y: auto;
+    list-style: none;
+}
+
+.defi-leer {
+    padding: 16px 10px;
+    color: var(--grau);
+}
+
+.defi-eintrag {
+    border-radius: 12px;
+    transition: background-color 0.15s ease;
+}
+
+.defi-eintrag + .defi-eintrag {
+    margin-top: 4px;
+}
+
+.defi-eintrag:hover {
+    background: var(--hintergrund);
+}
+
+.defi-eintrag.aktiv {
+    background: #fbeceb;
+}
+
+.defi-eintrag-knopf {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 10px;
+    border: 0;
+    background: none;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.defi-nummer {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: var(--rot);
+    color: #ffffff;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.defi-eintrag-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+}
+
+.defi-name {
+    font-weight: 700;
+    color: var(--tinte);
+    overflow-wrap: anywhere;
+}
+
+.defi-entfernung {
+    font-size: 0.88rem;
+    color: var(--grau);
+}
+
+/* Details nur beim ausgewählten Eintrag aufklappen */
+.defi-eintrag .defi-details {
+    display: none;
+    padding: 0 12px 14px 52px;
+}
+
+.defi-eintrag.aktiv .defi-details {
+    display: block;
+}
+
+.defi-badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 6px 0 10px;
+}
+
+.defi-badge {
+    padding: 3px 10px;
+    border-radius: 999px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.defi-badge.gut {
+    background: #e3f4e8;
+    color: #1e7a3c;
+}
+
+.defi-badge.mittel {
+    background: #fdf1dc;
+    color: #8a5a00;
+}
+
+.defi-badge.schlecht {
+    background: #fbe3e1;
+    color: var(--rot-dunkel);
+}
+
+.defi-badge.unbekannt {
+    background: #e9eef0;
+    color: var(--grau);
+}
+
+.defi-infos {
+    margin: 0 0 12px;
+    font-size: 0.9rem;
+}
+
+.defi-infos dt {
+    font-weight: 700;
+    color: var(--tinte-hell);
+}
+
+.defi-infos dd {
+    margin: 0 0 6px;
+    color: var(--tinte);
+    overflow-wrap: anywhere;
+}
+
+.defi-infos a {
+    color: var(--rot);
+}
+
+.defi-route {
+    padding: 8px 14px;
+    font-size: 0.9rem;
+}
+
+/* Leaflet: eigener Defi-Marker und Popup */
+.defi-marker {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ffffff;
+    border-radius: 50%;
+    background: var(--rot);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+.defi-marker svg {
+    width: 20px;
+    height: 20px;
+}
+
+.suchpunkt-marker {
+    background: none;
+    border: 0;
+    cursor: grab;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.4));
+}
+
+.suchpunkt-marker:active {
+    cursor: grabbing;
+}
+
+.suchpunkt-marker svg {
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+
+.defi-karte.leaflet-container {
+    cursor: crosshair;
+}
+
+.defi-popup strong {
+    display: block;
+    font-size: 1rem;
+    color: var(--tinte);
+}
+
+.defi-popup .defi-route,
+.defi-popup .defi-route:hover {
+    color: #ffffff;
+}
+
+.leaflet-container {
+    font-family: var(--font-sans);
+}
+
+@media (max-width: 860px) {
+    .karte-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .defi-karte {
+        height: 420px;
+    }
+
+    .defi-seite {
+        height: auto;
+        max-height: 560px;
+    }
+}
