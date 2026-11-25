@@ -1390,3 +1390,63 @@
         max-height: 560px;
     }
 }
+
+/* Wie funktioniert's? – Text zum Video */
+.tutorial-text {
+    max-width: 48rem;
+    margin: 40px auto 0;
+}
+
+.tutorial-schritte {
+    display: grid;
+    gap: 18px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.tutorial-schritt {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    align-items: center;
+    gap: 20px;
+    padding: 14px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow:
+        0 6px 0 #d5dede,
+        0 16px 30px rgba(30, 43, 51, 0.1);
+}
+
+.tutorial-schritt img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    border-radius: 12px;
+    background: #f3f1ef;
+}
+
+.tutorial-label {
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #2e8b6e;
+}
+
+.tutorial-schritt h3 {
+    margin: 2px 0 6px;
+    font-size: 1.25rem;
+}
+
+.tutorial-schritt p {
+    margin: 0;
+    color: var(--grau);
+    line-height: 1.6;
+}
+
+@media (max-width: 560px) {
+    .tutorial-schritt {
+        grid-template-columns: 1fr;
+    }
+}
